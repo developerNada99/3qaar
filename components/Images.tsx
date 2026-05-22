@@ -47,7 +47,8 @@ const Images = () => {
                   src="/img1.png"
                   alt="عقار"
                   fill
-                  className="object-cover"
+                                  className="object-cover"
+                                 
                 />
               </div>
 
