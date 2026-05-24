@@ -4,7 +4,7 @@ import Buying from '@/components/Buying'
 
 const page = () => {
   return (
-      <div className='pt-12 min-h-screen bg-[#f9f6ec] flex justify-center items-center'>
+      <div className='pt-12 min-h-screen  flex justify-center items-center'>
           <Buying/>
     </div>
   )
