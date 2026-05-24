@@ -47,8 +47,8 @@ const Images = () => {
                   src="/img1.png"
                   alt="عقار"
                   fill
-                                  className="object-cover"
-                                 
+                  sizes="(max-width: 640px) 33vw, (max-width: 768px) 30vw, 25vw"
+                  className="object-cover"
                 />
               </div>
 
@@ -57,6 +57,7 @@ const Images = () => {
                   src="/img2.png"
                   alt="عقار"
                   fill
+                  sizes="(max-width: 640px) 33vw, (max-width: 768px) 30vw, 25vw"
                   className="object-cover"
                 />
               </div>
@@ -66,6 +67,7 @@ const Images = () => {
                   src="/img3.jpg"
                   alt="عقار"
                   fill
+                  sizes="(max-width: 640px) 33vw, (max-width: 768px) 30vw, 25vw"
                   className="object-cover"
                 />
               </div>
@@ -79,17 +81,18 @@ const Images = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5 }}
             viewport={{ once: true }}
-            className="w-full lg:w-1/2 text-center lg:text-right mt-10"
+            className="w-full lg:w-1/2 text-center lg:text-right mt-12"
           >
-            <p className={`${cairo.className} text-gray-600 leading-relaxed text-base sm:text-lg`}>
+            <p className={`${cairo.className} text-gray-600 leading-relaxed text-center text-base sm:text-lg`}>
               في مؤسسة <span className="text-[#274b97] font-semibold">بوابة الطائف العقارية</span>، 
               لا نبيع مجرد عقارات، بل نصنع <span className="text-[#274b97] font-semibold">فرصاً استثمارية مستدامة</span>.
             </p>
             
-            <p className={`${cairo.className} text-gray-600 leading-relaxed text-base sm:text-lg mt-4`}>
-              نركز خبرتنا في <span className="text-[#274b97] font-semibold">شمال الطائف</span> 
-              وتحديداً في <span className="text-[#274b97] font-semibold">مخططات العرفاء</span> 
-              لنقدم لكم أفضل الأراضي والمشاريع التي تلبي تطلعاتكم المستقبلية، سواء كنتم تبحثون عن السكن أو الاستثمار المربح.
+            <p className={`${cairo.className} text-gray-600 leading-relaxed text-center text-base sm:text-lg mt-4`}>
+              نضع كامل خبرتنا ومعرفتنا العميقة بالسوق العقاري في مدينة  الطائف
+              ومخططاتها الحيوية لنقدم لكم أفضل الأراضي والمشاريع التي تلبي تطلعاتكم المستقبلية، 
+              سواء كنتم تبحثون عن <span className="text-[#274b97] font-semibold">السكن الملائم</span> أو 
+              <span className="text-[#274b97] font-semibold"> الاستثمار المربح</span>.
             </p>
           </motion.div>
 

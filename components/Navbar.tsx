@@ -18,9 +18,9 @@ export default function Navbar() {
   const pathname = usePathname(); 
   const navLinks = [
     { name: "الرئيسية", href: "/" },         
-    { name: "من نحن", href: "/" },
-    { name: "خدماتنا", href: "/" },
-    { name: "تواصل معنا", href: "/" }
+    { name: "من نحن", href: "/about" },
+    { name: "خدماتنا", href: "/services" },
+    { name: "تواصل معنا", href: "/contact" }
   ];
 
   // دالة للتحقق إذا كان الرابط نشطاً
