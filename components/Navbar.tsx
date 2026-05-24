@@ -73,7 +73,7 @@ export default function Navbar() {
                     key={index}
                     href={link.href}
                     className={`transition ${
-                      active ? "text-[#0e1d3d]" : "hover:text-[#3c63ac]"
+                      active ? "text-[#3c63ac]" : "hover:text-[#0e1d3d]"
                     }`}
                   >
                     {link.name}
@@ -112,7 +112,7 @@ export default function Navbar() {
                     href={link.href}
                     onClick={() => setIsOpen(false)}
                     className={`transition ${
-                      active ? "text-[#0e1d3d]" : "hover:text-[#3c63ac]"
+                      active ? "text-[#3c63ac]" : "hover:text-[#0e1d3d]"
                     }`}
                   >
                     {link.name}
