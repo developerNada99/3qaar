@@ -57,7 +57,7 @@ const About = () => {
               <div className="absolute inset-0 m-auto w-[70%] aspect-square 
                               rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/about.jpg"
+                  src="/herosec.jpg"
                   alt="مؤسسة بوابة الطائف العقارية"
                   fill
                   priority
