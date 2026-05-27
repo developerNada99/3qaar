@@ -13,7 +13,7 @@ const Footer = () => {
     <footer className="py-4 px-4 sm:px-6 md:px-8 border-t border-[#274b97]/30 bg-white" dir="rtl">
       <div className="max-w-6xl mx-auto">
         <div className="text-center">
-          <p className={`${cairo.className} text-gray-500 text-sm sm:text-base`}>
+          <p className={`${cairo.className} text-gray-900 text-sm sm:text-base`}>
             جميع الحقوق محفوظة © {new Date().getFullYear()} 
             <span className="text-[#274b97] font-semibold mx-1"> بوابة الطائف العقارية</span>
           </p>

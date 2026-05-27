@@ -19,7 +19,7 @@ const HeroSection = () => {
       {/* الخلفية */}
       <div className="absolute inset-0 w-full h-full">
         <Image
-          src="/herosec.jpg"
+          src="/lll.jpg"
           alt="خلفية"
           fill
           priority
@@ -28,14 +28,13 @@ const HeroSection = () => {
       </div>
       
       {/* طبقة غامقة */}
-      <div className="absolute inset-0 backdrop-blur-xl bg-white/5 shadow-lg"></div>
+      <div className="absolute inset-0 bg-black/70"></div>
       
-      {/* المحتوى - توسيط عمودي كامل */}
+      {/* المحتوى */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
         
         <div className="max-w-4xl">
           
-          {/* السطر الأول: بوابة الطائف العقارية */}
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -45,26 +44,24 @@ const HeroSection = () => {
             مؤسسة بوابة <span className="text-[#7a9ed4]">الطائف</span> العقارية
           </motion.h1>
           
-          {/* السطر الثاني: وجهتكم الأولى للاستثمار الآمن في مخططات العرفاء */}
           <motion.p
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
             className={`${cairo.className} text-2xl sm:text-3xl md:text-4xl font-semibold text-[#7a9ed4] mb-6`}
           >
-           بوابة الطائف العقارية.. خياركم الأول للاستثمار والسكن في قلب بوابة مكة الشرقية
+            بوابة الطائف العقارية.. خياركم الأول للاستثمار والسكن
           </motion.p>
           
-          {/* السطر الثالث: الوصف الطويل */}
           <motion.p
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 1.0, ease: "easeOut" }}
             className={`${cairo.className} text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl mx-auto`}
           >
-نواكب النهضة العمرانية في الطائف لنقدم لكم أفضل الفرص العقارية. بيع، شراء، إدارة أملاك، وتطوير على الخارطة بموثوقية تامة.          </motion.p>
+            نواكب النهضة العمرانية في الطائف لنقدم لكم أفضل الفرص العقارية. بيع، شراء، إدارة أملاك، وتطوير على الخارطة بموثوقية تامة.
+          </motion.p>
           
-          {/* السطر الرابع: الزر */}
           <motion.a
             href={whatsappLink}
             target="_blank"
