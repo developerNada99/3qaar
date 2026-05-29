@@ -20,6 +20,9 @@ const Contact = () => {
   const whatsappNumber = "966559002060";
   const whatsappLink = `https://wa.me/${whatsappNumber}`;
   const phoneNumber = "966559002060";
+  
+  // Google Maps link للمؤسسة
+  const googleMapsLink = "https://www.google.com/maps/place/%D9%85%D8%A4%D8%B3%D8%B3%D8%A9+%D8%A8%D9%88%D8%A7%D8%A8%D8%A9+%D8%A7%D9%84%D8%B7%D8%A7%D8%A6%D9%81+%D8%A7%D9%84%D8%B9%D9%82%D8%A7%D8%B1%D9%8A%D8%A9%E2%80%AD/@21.5352471,40.6238915,702m/data=!3m2!1e3!4b1!4m6!3m5!1s0x15ea35c92b1ed10d:0xba313713c2bb2b69!8m2!3d21.5352421!4d40.6213166!16s%2Fg%2F11vjl5xkxg?hl=ar&entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D";
 
   return (
     <section className="py-24 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 bg-linear-to-b from-white to-[#f9f6ec]" dir="rtl">
@@ -143,32 +146,38 @@ const Contact = () => {
                   </div>
                 </div>
 
-                
-
               </div>
             </div>
           </motion.div>
 
-        {/* الخريطة - تم التحديث بالرابط الجديد */}
-<motion.div
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: true }}
->
-  <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3024.123456789!2d40.5087!3d21.4326!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDI1JzU3LjQiTiA0MMKwMzAnMzEuMyJF!5e0!3m2!1sar!2ssa!4v1234567890"
-      width="100%"
-      height="350"
-      style={{ border: 0 }}
-      allowFullScreen
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-      title="موقع مؤسسة بوابة الطائف العقارية"
-    ></iframe>
-  </div>
-</motion.div>
+          {/* الخريطة - عند الضغط تفتح الرابط */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div 
+              className="bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer"
+              onClick={() => window.open(googleMapsLink, '_blank')}
+              role="button"
+              aria-label="افتح الموقع على خرائط جوجل"
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3024.123456789!2d40.5087!3d21.4326!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDI1JzU3LjQiTiA0MMKwMzAnMzEuMyJF!5e0!3m2!1sar!2ssa!4v1234567890"
+                width="100%"
+                height="350"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="موقع مؤسسة بوابة الطائف العقارية"
+              ></iframe>
+              <div className="text-center py-2 text-sm text-[#274b97] bg-gray-50 border-t">
+                اضغط هنا للفتح في خرائط جوجل
+              </div>
+            </div>
+          </motion.div>
 
         </div>
 

@@ -52,9 +52,10 @@ const Sale = () => {
           >
             <div className="rounded-2xl overflow-hidden shadow-xl relative w-full aspect-4/3">
               <Image
-                src="/sales.jpg"
+                src="/sss.jpg"
                 alt="بيع العقارات"
                 fill
+                loading="eager"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover hover:scale-105 transition-transform duration-500"
               />

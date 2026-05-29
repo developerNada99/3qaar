@@ -12,7 +12,7 @@ const cairo = Cairo({
 
 const Management = () => {
   return (
-    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 bg-white" dir="rtl">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8" dir="rtl">
       <div className="max-w-6xl mx-auto">
         
         {/* المحتوى: صورة + نص */}
@@ -28,7 +28,7 @@ const Management = () => {
           >
             <div className="rounded-2xl overflow-hidden shadow-xl relative w-full aspect-4/3">
               <Image
-                src="/manage.jpg"
+                src="/management.jpg"
                 alt="إدارة الأملاك"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"

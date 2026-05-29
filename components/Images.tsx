@@ -136,7 +136,7 @@ export default function Images() {
                 style={{ height: 300 }}
                 whileHover={{ scale: 1.03 }}
               >
-                <Image src="/img1.png" alt="عقار" fill sizes="25vw" className="object-cover" />
+                <Image src="/img1.jpg" alt="عقار" fill sizes="25vw" className="object-cover" />
                 <div className="absolute inset-0 bg-linear-to-t from-[#274b97]/30 to-transparent" />
               </motion.div>
 
@@ -150,7 +150,7 @@ export default function Images() {
                 style={{ height: 270 }}
                 whileHover={{ scale: 1.03 }}
               >
-                <Image src="/img2.png" alt="عقار" fill sizes="25vw" className="object-cover" />
+                <Image src="/img2.jpg" alt="عقار" fill sizes="25vw" className="object-cover" />
                 <div className="absolute inset-0 bg-linear-to-t from-[#274b97]/25 to-transparent" />
               </motion.div>
 
@@ -164,7 +164,7 @@ export default function Images() {
                 style={{ height: 240 }}
                 whileHover={{ scale: 1.03 }}
               >
-                <Image src="/img3.jpg" alt="عقار" fill sizes="25vw" className="object-cover" />
+                <Image src="/img3.png" alt="عقار" fill sizes="25vw" className="object-cover" />
                 <div className="absolute inset-0 bg-linear-to-t from-[#274b97]/20 to-transparent" />
               </motion.div>
             </div>
