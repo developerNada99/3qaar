@@ -9,6 +9,10 @@ export default function Home() {
   return (
     <div>
       <HeroSection />
+
+     
+
+
       <PropertyTypesSection/>
             <Images />
        <ServicesSection/>

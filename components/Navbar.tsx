@@ -66,7 +66,7 @@ export default function Navbar() {
                 priority
               />
             </div>
-            <div className="flex flex-col leading-tight -ml-28">
+            <div className="flex flex-col leading-tight">
               <span className="font-extrabold text-sm text-[#274b97] tracking-wide">
                 بوابة الطائف العقارية
               </span>
