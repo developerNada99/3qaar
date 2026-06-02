@@ -167,9 +167,9 @@ const Contact = () => {
                   <div>
                     <p className="text-sm text-gray-500">العنوان</p>
                     <p className="font-semibold text-gray-800 leading-relaxed">
-                      TFGA7544، 5736 حذيفة ابن امية, C13، 7544
+                        مقابل كبري الجوادا
                       <br />
-                      Taif 26331, Saudi Arabia
+                        العرفاء الشرقية
                     </p>
                   </div>
                 </div>
