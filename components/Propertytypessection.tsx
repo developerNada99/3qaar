@@ -185,7 +185,7 @@ const PropertyTypesSection = () => {
           </svg>
         </div>
 
-        <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-[#274b97]/30 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#274b97]/30 to-transparent" />
 
         {/* Header */}
         <div className="relative z-10 text-center mb-16 px-6">
@@ -207,7 +207,7 @@ const PropertyTypesSection = () => {
             className="text-[#0a0f1e] text-4xl md:text-5xl font-extrabold leading-snug"
           >
             أنواع{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-l from-[#7a9ed4] to-[#274b97]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#7a9ed4] to-[#274b97]">
               العقارات
             </span>
           </motion.h2>
@@ -343,22 +343,20 @@ const PropertyTypesSection = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.92, y: 40 }}
               transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="fixed inset-4 sm:inset-8 md:inset-12 z-50 rounded-2xl overflow-hidden shadow-2xl"
+              className="fixed inset-4 sm:inset-8 md:inset-12 z-50 rounded-2xl shadow-2xl overflow-hidden"
             >
-              {/* زر الإغلاق */}
+              {/* زر الإغلاق فوق كل حاجة داخل الـ modal */}
               <button
                 onClick={() => setActivePopup(null)}
-                className="absolute top-4 left-4 z-10 w-10 h-10 flex items-center justify-center
-                           rounded-full bg-black/50 backdrop-blur-sm border border-white/20
-                           text-white hover:bg-black/70 transition-colors duration-200"
+                className="absolute top-4 left-4 z-[9999] w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-lg border border-gray-200 text-gray-700"
               >
-                <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth={2}>
+                <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
                 </svg>
               </button>
 
               {/* المحتوى */}
-              <div className="w-full h-full overflow-y-auto">
+              <div className="w-full h-full overflow-y-auto rounded-2xl">
                 {popupComponents[activePopup]}
               </div>
             </motion.div>
