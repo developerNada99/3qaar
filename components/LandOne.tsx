@@ -4,7 +4,6 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Cairo } from 'next/font/google';
-import { ExternalLink } from 'lucide-react';
 
 const cairo = Cairo({
   subsets: ['arabic'],
@@ -44,37 +43,20 @@ const offers = [
     status: "للبيع",
     description: "وصل السوم ١٥٨ صافي — المالك طالب زود وبياع بإذن الله",
   },
-  {
-    id: 3,
-    type: "image",
-    media: "/img2.jpeg",
-    number: "٢٦٢٠",
-    plan: "مخطط ضاحية العرفاء ٩٩١",
-    location: "شمال الطائف",
-    details: [
-      { label: "المساحة", value: "٧٣٧م²" },
-      { label: "الواجهة", value: "واجهتين — زاوية" },
-      { label: "الشوارع", value: "ميدان ٣٠م شمالي + ٢٥م شرقي" },
-    ],
-    price: "٢٣٠,٠٠٠",
-    status: "للبيع",
-    description: "طبيعة ممتازة — قريبة من شارع ال٦٠",
-    twitterLink: "https://x.com/0559002060/status/2019023161954594978",
-  },
- 
   // أضف عروض مستقبلية هنا
 ];
 
 const LandOne = () => {
   return (
-    <section className="relative w-full min-h-[90vh] overflow-hidden" dir="rtl">
+    <section className="relative w-full min-h-screen overflow-hidden" dir="rtl">
 
       <Image
         src="/landone.jpg"
         alt="أراضي سكنية وتجارية في الطائف"
         fill
         priority
-        className="object-cover"
+        className="object-cover object-center"
+        sizes="100vw"
       />
 
       <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/60 to-black/20" />
@@ -173,7 +155,7 @@ const LandOne = () => {
                     ) : (
                       <Image
                         src={offer.media}
-                        alt={offer.number === "تجارية" ? "٣ قطع تجارية" : `قطعة رقم ${offer.number}`}
+                        alt={`قطعة رقم ${offer.number}`}
                         fill
                         className="object-cover"
                         sizes="340px"
@@ -186,11 +168,7 @@ const LandOne = () => {
                     <div className="flex items-start justify-between mb-3">
                       <div>
                         <p className="text-white/40 text-[10px] tracking-widest uppercase font-medium">عرض حصري</p>
-                        {offer.number === "تجارية" ? (
-                          <h3 className="text-white text-base font-black">٣ قطع تجارية - صك واحد</h3>
-                        ) : (
-                          <h3 className="text-white text-base font-black">قطعة رقم {offer.number}</h3>
-                        )}
+                        <h3 className="text-white text-base font-black">قطعة رقم {offer.number}</h3>
                         <p className="text-[#7a9ed4] text-xs font-semibold">{offer.plan} — {offer.location}</p>
                       </div>
                       <span className="px-2.5 py-1 rounded-full bg-[#274b97] text-white text-[10px] font-bold shrink-0">
@@ -211,41 +189,10 @@ const LandOne = () => {
                       <p className="text-white/50 text-xs leading-relaxed mb-3">{offer.description}</p>
                     )}
 
-                    {/* بادج إضافي للعرض التجاري */}
-                    {offer.number === "تجارية" && (
-                      <div className="mb-3">
-                        <span className="inline-block px-2 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-semibold border border-emerald-500/30">
-                          🏭 فرصة استثمارية كبرى
-                        </span>
-                      </div>
-                    )}
-
-                    {/* رابط تويتر إذا وجد */}
-                    {offer.twitterLink && (
-                      <a
-                        href={offer.twitterLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-[#7a9ed4] hover:text-[#274b97] text-xs mb-3 transition-colors duration-200"
-                      >
-                        <ExternalLink className="w-3 h-3" />
-                        عرض التفاصيل كاملة على X
-                      </a>
-                    )}
-
                     <div className="flex items-center justify-between gap-3 pt-3 border-t border-white/10">
                       <div>
-                        <p className="text-white/40 text-[10px]">
-                          {offer.number === "تجارية" ? "السعر" : "المطلوب"}
-                        </p>
-                        {offer.number === "تجارية" ? (
-                          <p className="text-white text-sm font-black">يُطلب عند الجادين</p>
-                        ) : (
-                          <>
-                            <p className="text-white text-lg font-black">{offer.price} ﷼</p>
-                            <p className="text-white/30 text-[9px]">صافي</p>
-                          </>
-                        )}
+                        <p className="text-white/40 text-[10px]">المطلوب</p>
+                        <p className="text-white text-lg font-black">{offer.price} ﷼</p>
                       </div>
                       <a
                         href="https://wa.me/966559002060"

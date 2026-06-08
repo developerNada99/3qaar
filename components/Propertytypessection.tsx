@@ -185,7 +185,7 @@ const PropertyTypesSection = () => {
           </svg>
         </div>
 
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#274b97]/30 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-[#274b97]/30 to-transparent" />
 
         {/* Header */}
         <div className="relative z-10 text-center mb-16 px-6">
@@ -196,7 +196,7 @@ const PropertyTypesSection = () => {
             transition={{ duration: 0.5 }}
             className="inline-block text-[#274b97] text-xs tracking-[4px] uppercase font-bold mb-4 border border-[#274b97]/25 rounded-full px-4 py-1.5 bg-[#274b97]/5"
           >
-            تصفح حسب النوع
+            بوابة الطائف العقارية
           </motion.span>
 
           <motion.h2
@@ -206,9 +206,9 @@ const PropertyTypesSection = () => {
             transition={{ duration: 0.55, delay: 0.1 }}
             className="text-[#0a0f1e] text-4xl md:text-5xl font-extrabold leading-snug"
           >
-            أنواع{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#7a9ed4] to-[#274b97]">
-              العقارات
+            أحدث{" "}
+            <span className="text-transparent bg-clip-text bg-linear-to-l from-[#7a9ed4] to-[#274b97]">
+              العروض العقارية
             </span>
           </motion.h2>
 
@@ -223,6 +223,16 @@ const PropertyTypesSection = () => {
             <div className="w-2.5 h-2.5 border-2 border-[#274b97] rotate-45 rounded-sm" />
             <div className="w-10 h-0.5 bg-[#274b97] rounded-full" />
           </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="text-gray-500 text-sm mt-3 max-w-lg mx-auto"
+          >
+            اكتشف أفضل الفرص الاستثمارية المتاحة حالياً في مدينة الطائف — اضغط على النوع لعرض التفاصيل
+          </motion.p>
         </div>
 
         {/* Cards grid */}
@@ -348,7 +358,7 @@ const PropertyTypesSection = () => {
               {/* زر الإغلاق فوق كل حاجة داخل الـ modal */}
               <button
                 onClick={() => setActivePopup(null)}
-                className="absolute top-4 left-4 z-[9999] w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-lg border border-gray-200 text-gray-700"
+                className="absolute top-4 left-4 z-9999 w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-lg border border-gray-200 text-gray-700"
               >
                 <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
