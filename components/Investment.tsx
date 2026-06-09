@@ -130,7 +130,7 @@ const Invest = () => {
                       src={offer.media}
                       alt={offer.title}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       sizes="340px"
                     />
                   </div>

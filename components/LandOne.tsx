@@ -157,7 +157,7 @@ const LandOne = () => {
                         src={offer.media}
                         alt={`قطعة رقم ${offer.number}`}
                         fill
-                        className="object-cover"
+                        className="object-contain"
                         sizes="340px"
                       />
                     )}
