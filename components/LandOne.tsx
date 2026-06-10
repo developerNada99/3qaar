@@ -45,25 +45,21 @@ const offers = [
   },
   {
   id: 3,
-  type: "video", // لو هتعرضي الفيديو أولاً
+  type: "video",
   media: "/vid3.mp4",
-  image: "/img4.jpeg", // احتفظي بالصورة لو هتطوري الكارد لاحقاً
-  number: "تجارية 991",
-  plan: "ضاحية العرفاء 991",
-  location: "طريق 100 الجنوبي - الطائف",
+  number: "استثمارية",
+  plan: "مخطط ٩٩١ ضاحية العرفاء",
+  location: "شمال الطائف",
   details: [
-    { label: "المساحة", value: "1094م²" },
-    { label: "الواجهة", value: "زاوية" },
-    { label: "الشارع الجنوبي", value: "100م" },
-    { label: "الشارع الشرقي", value: "25م" },
-    { label: "الموقع", value: "أمام جامع ومجمع تجاري" },
-    { label: "الطبيعة", value: "مستوية" },
+    { label: "المساحة", value: "١٠٩٤م²" },
+    { label: "الشارع", value: "طريق ١٠٠ الجنوبي" },
+    { label: "واجهة", value: "شارع ٢٥ شرقي" },
   ],
-  price: "١,٣٠٠,٠٠٠",
-  status: "للبيع",
+  price: "للبيع",
+  status: "فرصة استثمارية",
   description:
-    "قطعة تجارية على طريق 100 الجنوبي في مخطط ضاحية العرفاء (991)، تقع في وسط شارع 100 في الجزء (هـ) الجاري سفلتته حالياً. القطعة زاوية على شارعين 100م جنوبي و25م شرقي، وأمام جامع ومجمع تجاري بمخطط الأمانة. الأرض مستوية وبعيدة عن مجاري السيول والأودية.",
-}
+    "أرض تجارية مميزة على طريق ١٠٠ الجنوبي بمساحة ١٠٩٤ متر مربع. مناسبة لإقامة محطة وقود أو مجمع تجاري أو مجموعة كافيهات أو فندق استثماري كبير، بموقع حيوي وفرصة استثمارية واعدة.",
+},
   // أضف عروض مستقبلية هنا
 ];
 
@@ -165,39 +161,24 @@ const LandOne = () => {
                   className="w-full sm:w-85 bg-white/8 backdrop-blur-md border border-white/15 rounded-3xl overflow-hidden"
                 >
                   {/* الميديا */}
-                 <div className="relative bg-black/50">
-  {offer.type === "video" ? (
-    <div className="grid grid-cols-2 gap-1 aspect-video">
-      <div className="relative">
-        {offer.image && (
-  <Image
-    src={offer.image}
-    alt={`قطعة رقم ${offer.number}`}
-    fill
-    className="object-cover"
-  />
-)}
-      </div>
-
-      <video
-        src={offer.media}
-        controls
-        playsInline
-        className="w-full h-full object-cover"
-      />
-    </div>
-  ) : (
-    <div className="relative aspect-video">
-      <Image
-        src={offer.media}
-        alt={`قطعة رقم ${offer.number}`}
-        fill
-        className="object-contain"
-        sizes="340px"
-      />
-    </div>
-  )}
-</div>
+                  <div className="relative aspect-video bg-black/50">
+                    {offer.type === "video" ? (
+                      <video
+                        src={offer.media}
+                        controls
+                        playsInline
+                        className="w-full h-full object-contain"
+                      />
+                    ) : (
+                      <Image
+                        src={offer.media}
+                        alt={`قطعة رقم ${offer.number}`}
+                        fill
+                        className="object-contain"
+                        sizes="340px"
+                      />
+                    )}
+                  </div>
 
                   {/* التفاصيل */}
                   <div className="p-4">
