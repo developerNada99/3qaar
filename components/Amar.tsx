@@ -13,7 +13,8 @@ const cairo = Cairo({
 const offers = [
   {
     id: 1,
-    video: "/vid2.mp4",
+    type: "video",
+    media: "/vid2.mp4",
     title: "عمارة دورين وملحق",
     location: "حي السداد — الطائف",
     details: [
@@ -21,16 +22,30 @@ const offers = [
       { label: "الحي", value: "السداد" },
       { label: "الحالة", value: "للبيع" },
     ],
-    price: "١,٣٠٠,٠٠٠",
+    price: "١,٣٠٠,٠٠٠ ﷼",
     priceNote: "صافي",
     description: "التفاصيل الكاملة في الفيديو — والله ولي التوفيق",
+    status: "للبيع",
   },
-  // أضف عروض مستقبلية هنا
+  {
+    id: 2,
+    type: "video",
+    media: "/vid4.mp4", // ضع مسار الفيديو الخاص بالفيلا هنا
+    title: "فيلا خاصة فاخرة",
+    location: "أرقى أحياء الطائف",
+    details: [
+      { label: "نوع العقد", value: "شهري / سنوي" },
+      { label: "استثمار", value: "طويل الأجل" },
+    ],
+    priceNote: "شهرياً | السنوي قابل للتفاوض",
+    description: "فيلا خاصة راقية للإيجار الشهري أو السنوي أو استثمار طويل الأجل. تشطيبات فاخرة، موقع متميز، خدمات متكاملة. للاستفسارات تواصل معنا.",
+    status: "للإيجار",
+  },
 ];
 
 const Amaar = () => {
   return (
-    <section className="relative w-full min-h-[90vh] overflow-hidden" dir="rtl">
+    <section className="relative w-full min-h-screen overflow-hidden" dir="rtl">
 
       {/* الصورة خلفية */}
       <Image
@@ -45,7 +60,7 @@ const Amaar = () => {
       <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/60 to-black/20" />
 
       {/* المحتوى */}
-      <div className={`${cairo.className} relative z-10 flex flex-col justify-end min-h-[90vh] pb-12 px-6 sm:px-12 md:px-20`}>
+      <div className={`${cairo.className} relative z-10 flex flex-col justify-end min-h-screen pb-12 px-6 sm:px-12 md:px-20`}>
 
         {/* ── عنوان السكشن ── */}
         <div className="mb-10">
@@ -117,7 +132,7 @@ const Amaar = () => {
               <div className="h-px flex-1 bg-white/10" />
             </div>
 
-            <div className="flex flex-wrap gap-5">
+            <div className="flex flex-wrap gap-5 pb-4">
               {offers.map((offer, i) => (
                 <motion.div
                   key={offer.id}
@@ -130,10 +145,11 @@ const Amaar = () => {
                   {/* الفيديو */}
                   <div className="relative aspect-video bg-black/30">
                     <video
-                      src={offer.video}
+                      src={offer.media}
                       controls
                       playsInline
                       className="w-full h-full object-contain"
+                     
                     />
                   </div>
 
@@ -145,8 +161,10 @@ const Amaar = () => {
                         <h3 className="text-white text-base font-black">{offer.title}</h3>
                         <p className="text-[#7a9ed4] text-xs font-semibold">{offer.location}</p>
                       </div>
-                      <span className="px-2.5 py-1 rounded-full bg-[#274b97] text-white text-[10px] font-bold shrink-0">
-                        للبيع
+                      <span className={`px-2.5 py-1 rounded-full text-white text-[10px] font-bold shrink-0 ${
+                        offer.status === "للبيع" ? "bg-[#274b97]" : "bg-amber-600"
+                      }`}>
+                        {offer.status}
                       </span>
                     </div>
 
@@ -159,12 +177,14 @@ const Amaar = () => {
                       ))}
                     </div>
 
-                    <p className="text-white/50 text-xs leading-relaxed mb-3">{offer.description}</p>
+                    <p className="text-white/70 text-xs leading-relaxed mb-3">{offer.description}</p>
 
                     <div className="flex items-center justify-between gap-3 pt-3 border-t border-white/10">
                       <div>
-                        <p className="text-white/40 text-[10px]">المطلوب</p>
-                        <p className="text-white text-lg font-black">{offer.price} ﷼</p>
+                        <p className="text-white/40 text-[10px]">
+                          {offer.status === "للبيع" ? "المطلوب" : "الإيجار"}
+                        </p>
+                        <p className="text-white text-lg font-black">{offer.price}</p>
                         {offer.priceNote && (
                           <p className="text-white/40 text-[10px]">{offer.priceNote}</p>
                         )}
