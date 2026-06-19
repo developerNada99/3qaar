@@ -9,6 +9,7 @@ import Apartment from "@/components/Apartment";
 import Farm from "@/components/Farm";
 import LandTwo from "@/components/LandTwo";
 import Invest from "@/components/Investment";
+import { Property } from "@/app/actions/properties";
 
 const cairo = Cairo({
   subsets: ["arabic"],
@@ -113,15 +114,6 @@ const propertyTypes = [
   },
 ];
 
-const popupComponents: Record<string, React.ReactNode> = {
-  landone:   <LandOne />,
-  amaar:     <Amaar />,
-  apartment: <Apartment />,
-  farm:      <Farm />,
-  landtwo:   <LandTwo />,
-  invest:    <Invest />,
-};
-
 const BG_SHAPES = [
   { x: "2%",  y: "5%",  size: 80, filled: true,  rotate: 18,  delay: 0    },
   { x: "90%", y: "4%",  size: 60, filled: true,  rotate: -14, delay: 0.2  },
@@ -149,9 +141,36 @@ const cardVariants: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
 };
 
-const PropertyTypesSection = () => {
+// ══ Props اللي جايين من Server Component (page.tsx) ══
+type Props = {
+  landOne: Property[];
+  amaar: Property[];
+  apartment: Property[];
+  farm: Property[];
+  landTwo: Property[];
+  investment: Property[];
+};
+
+const PropertyTypesSection = ({
+  landOne,
+  amaar,
+  apartment,
+  farm,
+  landTwo,
+  investment,
+}: Props) => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [activePopup, setActivePopup] = useState<string | null>(null);
+
+  // الـ popup components بتاخد البيانات اللي جايه من فوق
+  const popupComponents: Record<string, React.ReactNode> = {
+    landone:   <LandOne offers={landOne} />,
+    amaar:     <Amaar offers={amaar} />,
+    apartment: <Apartment offers={apartment} />,
+    farm:      <Farm offers={farm} />,
+    landtwo:   <LandTwo offers={landTwo} />,
+    invest:    <Invest offers={investment} />,
+  };
 
   return (
     <>
@@ -367,7 +386,7 @@ const PropertyTypesSection = () => {
 
               {/* المحتوى */}
               <div className="w-full h-full overflow-y-auto rounded-2xl">
-                {popupComponents[activePopup]}
+                {activePopup && popupComponents[activePopup]}
               </div>
             </motion.div>
           </>
