@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+       lang="ar" translate="no"
       className={`h-full antialiased`}
       style={{ scrollBehavior: "auto" }}
     >
