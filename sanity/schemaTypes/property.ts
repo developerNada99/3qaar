@@ -1,4 +1,4 @@
-import {defineField, defineType} from "sanity";
+import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "property",
@@ -79,31 +79,62 @@ export default defineType({
       rows: 4,
     }),
 
+    // ══ الميديا — array يدعم صور وفيديوهات متعددة ══
     defineField({
-      name: "mediaType",
-      title: "نوع الميديا",
-      type: "string",
-      options: {
-        list: [
-          { title: "صورة", value: "image" },
-          { title: "فيديو", value: "video" },
-        ],
-      },
-    }),
+      name: "media",
+      title: "الصور والفيديوهات",
+      description: "أضف صورة أو فيديو أو أكثر — لو في عنصر واحد سيظهر كبيراً",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          name: "mediaItem",
+          title: "عنصر ميديا",
+          fields: [
+            {
+              name: "type",
+              title: "النوع",
+              type: "string",
+              options: {
+                list: [
+                  { title: "صورة", value: "image" },
+                  { title: "فيديو", value: "video" },
+                ],
+                layout: "radio",
+              },
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "image",
+              title: "الصورة",
+              type: "image",
+              options: { hotspot: true },
+              hidden: ({ parent }: { parent: { type: string } }) => parent?.type !== "image",
+            },
+            {
+              name: "video",
+              title: "الفيديو",
+              type: "file",
+              options: { accept: "video/*" },
+              hidden: ({ parent }: { parent: { type: string } }) => parent?.type !== "video",
+           },
+          ],
+          preview: {
+  select: {
+    type: "type",
+    image: "image",
+  },
+  prepare(selection) {
+    const { type, image } = selection;
 
-    defineField({
-      name: "image",
-      title: "الصورة",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-    }),
-
-    defineField({
-      name: "video",
-      title: "الفيديو",
-      type: "file",
+    return {
+      title: type === "image" ? "🖼 صورة" : "🎬 فيديو",
+      media: image,
+    };
+  },
+},
+        },
+      ],
     }),
 
     defineField({
@@ -127,16 +158,8 @@ export default defineType({
         {
           type: "object",
           fields: [
-            {
-              name: "label",
-              title: "العنوان",
-              type: "string",
-            },
-            {
-              name: "value",
-              title: "القيمة",
-              type: "string",
-            },
+            { name: "label", title: "العنوان", type: "string" },
+            { name: "value", title: "القيمة", type: "string" },
           ],
         },
       ],
@@ -154,7 +177,6 @@ export default defineType({
     select: {
       title: "title",
       subtitle: "category",
-      media: "image",
     },
   },
 });
